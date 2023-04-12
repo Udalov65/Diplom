@@ -1,0 +1,58 @@
+﻿<Page x:Class="Diplom.PageOfOrder"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diplom"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageOfOrder" IsVisibleChanged="Page_IsVisibleChanged" >
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="82*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="21*"/>
+            <RowDefinition Height="207*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,0" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="9"/>
+                <GradientStop Color="Black"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <DataGrid Name="СоставЗаказа" 
+                  AutoGenerateColumns="False" IsReadOnly="True" 
+                  VerticalScrollBarVisibility="Auto" Margin="0,0,0,10" 
+                  Background="#FFF0F0F0" Grid.Row="1" FontSize="15">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding PriceWork.Работа}" Width="*" Header="Наименование работ"/>
+                <DataGridTextColumn Binding="{Binding PriceWork.Цена}" Width="*" Header="Цена"/>
+                <DataGridTextColumn Binding="{Binding Count}" Width="*" Header="Объем работ"/>
+                <DataGridTextColumn Binding="{Binding Cost}" Width="*" Header="Стоимость"/>
+                <DataGridTemplateColumn Width="30">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="BtnSelectOrder2323" Click="BtnSelectOrder2323_Click" Content="">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Image/Redactirovanie2.png" Stretch="UniformToFill" TileMode="None"/>
+                                </Button.Background>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="39" Width="100" Click="BtnBack_Click" Background="{x:Null}" BorderBrush="White" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <Button Content="Добавить" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="2" VerticalAlignment="Center" Height="39" Width="100" Click="Button_Click" Background="{x:Null}" BorderBrush="White" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <Button Content="Удалить" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Center" Height="39" Width="100" Click="BtnDelete_Click" Margin="0,0,136,0" BorderBrush="White" Background="{x:Null}" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <Label Content="Состав заказа" HorizontalAlignment="Center" Width="188" FontSize="24" FontWeight="Bold" Background="{x:Null}" Foreground="White" Margin="0,-9,0,0" Height="42" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Zakaz" HorizontalAlignment="Left" Margin="678,-4,0,0" TextWrapping="Wrap" Text="№" VerticalAlignment="Top" Height="33" Width="86" FontSize="24" Foreground="White" FontWeight="Bold"/>
+        <Button Content="Смета" Margin="0,0,262,0" Grid.Row="2" VerticalAlignment="Center" Height="39" Click="BtnSmeta_Click" Background="{x:Null}" BorderBrush="White" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Right" Width="100"/>
+    </Grid>
+</Page>

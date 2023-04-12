@@ -1,0 +1,47 @@
+﻿<Page x:Class="Diplom.PagePriceWork"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diplom"
+      mc:Ignorable="d" 
+      d:DesignHeight="746" d:DesignWidth="1200"
+      Title="">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="82*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="21*"/>
+            <RowDefinition Height="207*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,0" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="9"/>
+                <GradientStop Color="Black"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <DataGrid Name="ПрайсЛист" 
+                  AutoGenerateColumns="False" IsReadOnly="True" 
+                  VerticalScrollBarVisibility="Auto" Margin="0,34,0,10" 
+                  Background="#FFF0F0F0" Grid.RowSpan="2" FontSize="15"   >
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Работа}" Width="*" Header="Работа"/>
+                <DataGridTextColumn Binding="{Binding Единица}" Width="*" Header="Единица"/>
+                <DataGridTextColumn Binding="{Binding Цена}" Width="*" Header="Цена,руб"/>
+                <DataGridTextColumn Binding="{Binding CategoryWork.CategoryName}" Width="*" Header="Категория"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="39" Width="100" Click="BtnBack_Click" Background="{x:Null}" BorderBrush="White" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <Button Content="Прайс-Лист" Margin="0,0,10,0" Grid.Row="2" VerticalAlignment="Center" Click="Excel_Click" Height="39" BorderBrush="White" Background="{x:Null}" Foreground="White" FontSize="20" FontWeight="Bold" HorizontalAlignment="Right" Width="122"/>
+        <Label Content="Прейскурант работ" HorizontalAlignment="Center" Margin="0,-3,0,0" VerticalAlignment="Top" Width="239" FontSize="24" FontWeight="Bold" Background="{x:Null}" Foreground="White" Grid.RowSpan="2"/>
+        <ComboBox x:Name="Filtration" HorizontalAlignment="Left" Margin="230,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="125" Height="39" SelectionChanged="Filtration_SelectionChanged" FontSize="14" Text="Категория" Foreground="Black" BorderBrush="White" Background="Black" />
+        <Label Content="Категория:" HorizontalAlignment="Left" Margin="115,0,0,0" Grid.Row="2" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <Label Content="Наименование:" HorizontalAlignment="Left" Margin="360,0,0,0" Grid.Row="2" VerticalAlignment="Center" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <TextBox x:Name="Poisk" HorizontalAlignment="Left" Margin="523,0,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="220" Height="36" Background="{x:Null}" BorderBrush="White" Foreground="White" FontSize="20" FontWeight="Bold" TextChanged="Poisk_TextChanged"/>
+    </Grid>
+</Page>

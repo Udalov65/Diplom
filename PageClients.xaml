@@ -1,0 +1,54 @@
+﻿<Page x:Class="Diplom.PageClients"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diplom"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="82*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="21*"/>
+            <RowDefinition Height="207*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,0" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="9"/>
+                <GradientStop Color="Black"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <DataGrid Name="Клиенты" 
+                  AutoGenerateColumns="False" IsReadOnly="True" 
+                  VerticalScrollBarVisibility="Auto" Margin="0,34,0,10" Grid.RowSpan="2" FontSize="15" BorderBrush="White">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ФИО}" Width="250" Header="ФИО" />
+                <DataGridTextColumn Binding="{Binding Паспортные_данные}" Width="*" Header="Паспортные данные"/>
+                <DataGridTextColumn Binding="{Binding Адрес}" Width="*" Header="Адрес"/>
+                <DataGridTextColumn Binding="{Binding Номер_телефона}" Width="120" Header="Телефон"/>
+                <DataGridTemplateColumn Width="30">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="BtnSelectClient1" Click="BtnSelectClient1_Click" Content="">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Image/Redactirovanie2.png" Stretch="UniformToFill" TileMode="None"/>
+                                </Button.Background>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="39" Width="100" Click="BtnBack_Click" BorderBrush="White" Foreground="White" FontSize="20" FontWeight="Bold" Background="{x:Null}"/>
+        <Button Content="Добавить" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Center" Height="39" Width="100" Click="Button_Click" Background="{x:Null}" BorderBrush="White" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <Button Content="Удалить" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Center" Height="39" Width="100" Click="BtnDel_Click" Margin="0,0,136,0" Background="{x:Null}" FontSize="20" Foreground="White" BorderBrush="White" FontWeight="Bold"/>
+        <Label Content="Информация о клиентах" HorizontalAlignment="Center" Margin="0,-8,0,0" VerticalAlignment="Top" Width="309" FontSize="24" FontWeight="Bold" Background="{x:Null}" Foreground="White"/>
+    </Grid>
+</Page>

@@ -1,0 +1,83 @@
+﻿<Page x:Class="Diplom.PageMagazineClients"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Diplom"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageMagazineClients">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="82*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="21*"/>
+            <RowDefinition Height="207*"/>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,0" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="9"/>
+                <GradientStop Color="Black"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <DataGrid Name="Журнал" 
+                  AutoGenerateColumns="False" IsReadOnly="True" 
+                  VerticalScrollBarVisibility="Auto" Margin="0,0,0,10" 
+                  Background="#FFF0F0F0" Grid.Row="1"
+                  FontSize="15"
+                  BorderBrush="White"
+                  >
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding OrderID}" Width="25" Header="ID" />
+                <DataGridTextColumn Binding="{Binding Clients.ФИО}" Width="180" Header="ФИО клиента"/>
+                <DataGridTextColumn Binding="{Binding Дата_приема, StringFormat=dd.MM.yyyy}" Width="*" Header="Дата приема"/>
+                <DataGridTextColumn Binding="{Binding Дата_сдачи, StringFormat=dd.MM.yyyy}" Width="*" Header="Дата сдачи"/>
+                <DataGridTextColumn Binding="{Binding Managers.ФИО}" Width="180" Header="Принял менеджер"/>
+                <DataGridTextColumn Binding="{Binding Worker.ФИО}" Width="180" Header="Ответственный работник"/>
+
+                <DataGridTemplateColumn Width="30">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="BtnSelectOrder" Click="BtnSelectOrder_Click" Content="">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Image/Redactirovanie2.png" Stretch="UniformToFill" TileMode="None"/>
+                                </Button.Background>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="30">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="BtnSelectOrder" Click="BtnSelectOrder_Click_1" Content="">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Image/order1.png" Stretch="UniformToFill" TileMode="None"/>
+                                </Button.Background>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="30">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="BtnSelectOtchet" Click="BtnSelectOtchet_Click" Content="">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/Image/Otchet.png" Stretch="UniformToFill" TileMode="None"/>
+                                </Button.Background>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="39" Width="100" Click="BtnBack_Click" FontSize="20" FontWeight="Bold" Background="{x:Null}" Foreground="White" BorderBrush="White"/>
+        <Button Content="Добавить" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Row="2" VerticalAlignment="Center" Height="39" Width="100" Click="Button_Click" Background="{x:Null}" BorderBrush="White" FontWeight="Bold" FontSize="20" Foreground="White"/>
+        <Button Content="Удалить" HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Center" Height="39" Width="100" Click="BtnDelete_Click" Margin="0,0,136,0" Foreground="White" Background="{x:Null}" BorderBrush="White" FontWeight="Bold" FontSize="20"/>
+        <Label Content="Журнал заказов клиентов" HorizontalAlignment="Center" Width="320" FontSize="24" FontWeight="Bold" Background="{x:Null}" Foreground="White" Height="43" VerticalAlignment="Top" Margin="0,-5,0,0" Grid.RowSpan="2"/>
+    </Grid>
+</Page>
